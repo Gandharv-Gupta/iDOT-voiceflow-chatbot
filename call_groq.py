@@ -10,7 +10,7 @@ client = OpenAI(
 )
 
 def call_groq(user_text):
-    system_prompt = 'Answer in very engaging conversational and precise manner.Reply under 30 words'  # You can add instructions if needed
+    system_prompt = "You are iDOT, a smart and friendly assistant. Keep replies casual, clear, engaging, and precise. Stay under 30 words."
     response = client.responses.create(
         input=user_text + system_prompt,
         model="openai/gpt-oss-20b",
