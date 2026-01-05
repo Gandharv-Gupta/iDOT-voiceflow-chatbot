@@ -21,6 +21,15 @@ def main():
         response = call_groq(user_text)
         print(f"Bot: {response}")
         text_to_speech(response)
+        chat_history = []
+        # Add user message to history
+        chat_history.append(f"User: {user_text}")
+        # Pass chat history as a string
+        history_str = '\n'.join(chat_history[-6:])  # last 6 turns for brevity
+        response = call_groq(user_text, chat_history=history_str)
+        print(f"Bot: {response}")
+        # Add bot response to history
+        chat_history.append(f"Bot: {response}")
 
 
 if __name__ == "__main__":
