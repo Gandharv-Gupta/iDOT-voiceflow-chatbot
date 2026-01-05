@@ -19,7 +19,7 @@ client = OpenAI(
 )
 
 def call_groq(user_text):
-    response_length = ''  # You can add instructions if needed
+    response_length = 'Reply under 30 words'  # You can add instructions if needed
     response = client.responses.create(
         input=user_text + response_length,
         model="openai/gpt-oss-20b",
